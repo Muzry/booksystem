@@ -6,6 +6,10 @@ import (
 )
 
 func GetBookByID(ctx *gin.Context){
+	bookID := ctx.Query("bookid")
+
+	GetBookInfo()
+
 	ctx.JSON(http.StatusOK, "get book by ID.")
 }
 

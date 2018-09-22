@@ -6,6 +6,7 @@ import (
 )
 
 func GetPublisherByID(ctx *gin.Context){
+	publisherID := ctx.Query("publisherid")
 	ctx.JSON(http.StatusOK, "get Publisher by ID.")
 }
 
