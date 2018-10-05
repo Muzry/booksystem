@@ -5,7 +5,7 @@ import (
 	"net/http"
 )
 
-func RunHTTPServer(engine *gin.Engine){
+func RunHTTPServer(engine *gin.Engine) {
 	engine.GET("/api/v1alpha1/version", func(context *gin.Context) {
 		context.JSON(http.StatusOK, gin.H{"appName": "BookSystem", "version": "0.0.1"})
 	})
