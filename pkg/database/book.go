@@ -4,7 +4,7 @@ import "time"
 
 type Book struct {
 	ID          string    `xorm:"varchar(255) pk not null 'id'" json:"id"`
-	BarCode     string    `xorm:"varchar(255) not null 'barcode'" json:"barCode"`
+	BarCode     string    `xorm:"varchar(255) not null 'barCode'" json:"barCode"`
 	Number      string    `xorm:"varchar(255) not null 'number'" json:"number"`
 	ClassNumber string    `xorm:"varchar(255) not null 'classNumber'" json:"classNumber"`
 	Class       string    `xorm:"varchar(255) not null 'class'" json:"class"`

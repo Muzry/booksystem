@@ -3,7 +3,8 @@ package database
 import "time"
 
 type Publisher struct {
-	ISBN      string    `xorm:"varchar(255) pk not null 'isbn'" json:"isbn"`
+	ID        string    `xorm:"varchar(255) pk not null 'id'" json:"id"`
+	ISBN      string    `xorm:"varchar(255) 'isbn'" json:"isbn"`
 	Name      string    `xorm:"varchar(255) 'name'" json:"name"`
 	CreatedAt time.Time `xorm:"created" json:"createAt"`
 }

@@ -51,23 +51,25 @@
                 <h1 class="h2" style="margin-top: 20px;margin-bottom: 20px">书籍管理</h1>
             </div>
             <div class="col-1">
-                <button class="btn btn-primary" style="margin-top: 20px; margin-bottom: 20px;width: 80px;height: 40px;">新增</button>
+              <a href="./bookinfo.html">
+                <button class="btn btn-info" style="margin-top: 20px; margin-bottom: 20px;width: 80px;height: 40px;">新增</button>
+              </a>
             </div>
           </div>
           <div class="table-responsive">
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th>#</th>
+                  <th>序号</th>
                   <th>条形码</th>
-                  <th>图书编号</th>
-                  <th>分类号</th>
-                  <th>图书类别</th>
+                  <!-- <th>图书编号</th> -->
+                  <!-- <th>分类号</th> -->
+                  <!-- <th>图书类别</th> -->
                   <th>书名</th>
                   <th>著译者</th>
                   <th>出版处</th>
                   <th>页数</th>
-                  <th>开本</th>
+                  <!-- <th>开本</th> -->
                   <th>版期</th>
                   <th>版次</th>
                   <th>价格</th>
@@ -77,26 +79,36 @@
                   <th>操作</th>
                 </tr>
               </thead>
+              <tbody id="table"></tbody>
+              <script id="bookTable" type="text/html">
+              {{each list value index}}
               <tbody>
-                  <td>#</td>
-                  <td>条形码</td>
-                  <td>图书编号</td>
-                  <td>分类号</td>
-                  <td>图书类别</td>
-                  <td>书名</td>
-                  <td>著译者</td>
-                  <td>出版处</td>
-                  <td>页数</td>
-                  <td>开本</td>
-                  <td>版期</td>
-                  <td>版次</td>
-                  <td>价格</td>
-                  <td>书架名称</td>
-                  <td>入库时间</td>
-                  <td>备注</td>
-                  <td><button data-feather="edit"></button><button style="margin-left:5px" data-feather="x-circle"></td>
-              </tbody>
-            </table>
+                  <td>{{index + 1}}</td>
+                  <td>{{value['barCode']}}</td>
+                  <!-- <td>{{value['number']}}</td> -->
+                  <!-- <td>{{value['classNumber']}}</td> -->
+                  <!-- <td>{{value['class']}}</td> -->
+                  <td>{{value['name']}}</td>
+                  <td>{{value['author']}}</td>
+                  <td>{{value['publisher']}}</td>
+                  <td>{{value['pageNumber']}}</td>
+                  <!-- <td>{{value['size']}}</td> -->
+                  <td>{{value['version']}}</td>
+                  <td>{{value['edition']}}</td>
+                  <td>{{value['price']}}</td>
+                  <td>{{value['location']}}</td>
+                  <td>{{value['createAt']}}</td>
+                  <td>{{value['annotation']}}</td>
+                  <td>
+                    <a href="./bookinfo.html?id={{value['id']}}" style="text-decoration: none;color:initial;">
+                      <button data-feather="edit"></button>
+                    </a>
+                    <button onclick='deleteBookInfo({{value['id']}})' style="margin-left:5px" data-feather="x-circle"></button>
+                    </td>
+                </tbody>
+                {{/each}}
+              </script>
+            </table> 
           </div>
         </main>
       </div>
@@ -105,14 +117,20 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="./assets/js/vendor/popper.min.js"></script>
+    <script src="./js/jquery-3.1.1.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/moment.min.js"></script>
+    <script src="./js/template-web.js"></script>
+    <script src="./js/booksystem.js"></script>
 
     <!-- Icons -->
     <script src="./js/feather.min.js"></script>
     <script>
-      feather.replace()
+      
+      $(function() {
+        getBookList();
+      });
+
     </script>
   </body>
 </html>

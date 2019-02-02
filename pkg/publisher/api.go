@@ -2,10 +2,12 @@ package publisher
 
 import (
 	"booksystem/pkg/database"
-	"github.com/gin-gonic/gin"
+	"fmt"
 	"net/http"
 	"strconv"
 	"time"
+
+	"github.com/gin-gonic/gin"
 )
 
 func GetPublisherByID(ctx *gin.Context) {
@@ -21,11 +23,12 @@ func GetPublisherByID(ctx *gin.Context) {
 
 func CreatePublisher(ctx *gin.Context) {
 	publisher := database.Publisher{}
-
+	fmt.Println(ctx)
 	err := ctx.BindJSON(&publisher)
 
 	if err != nil {
 		ctx.JSON(http.StatusInternalServerError, nil)
+		return
 	}
 
 	result, err := CreateORUpdatePublisher(publisher, Create, strconv.FormatInt(time.Now().Unix(), 10))
@@ -78,6 +81,7 @@ func UpdatePublisherByID(ctx *gin.Context) {
 
 	if err != nil {
 		ctx.JSON(http.StatusInternalServerError, nil)
+		return
 	}
 
 	publisherID := ctx.Param("id")

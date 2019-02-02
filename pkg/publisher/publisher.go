@@ -24,7 +24,7 @@ func GetPublisherInfo(publisherID string) (*database.Publisher, error) {
 		return nil, err
 	}
 	if !has {
-		return nil, fmt.Errorf("no such result from publisher table.")
+		return nil, fmt.Errorf("no such result from publisher table")
 	}
 	return &publisher, nil
 }
@@ -71,7 +71,7 @@ func CreateORUpdatePublisher(publisher database.Publisher, mothodType, publisher
 	}
 
 	if mothodType == Create {
-		publisher.ISBN = publisherID
+		publisher.ID = publisherID
 		_, err = db.Insert(publisher)
 		if err != nil {
 			return nil, err

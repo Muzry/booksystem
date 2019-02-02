@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>书籍信息</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/dashboard.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="./book.html">书籍管理</a>
+      <ul class="navbar-nav px-3">
+      </ul>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          <div class="sidebar-sticky">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link" href="./book.html">
+                  <span data-feather="file"></span>
+                  书籍管理 
+                  <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./publisher.html">
+                  <span data-feather="layers"></span>
+                  出版社管理
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <main role="main" class="ml-sm-auto col-lg-10 px-4"> 
+         <div class="row justify-content-center"> 
+          <div class="col-md-6" id="bookInfoDiv">
+            <script id = "bookInfoScript" type="text/html">  
+              <h2 class="mb-3" style="margin-top: 20px;margin-bottom: 20px">{{title}}</h2>
+              <form class="needs-validation" id="bookInfo" novalidate>
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="barCode">条形码</label>
+                    <input type="text" value="{{info.barCode}}" name="barCode" class="form-control" id="barCode">
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="bookname">书名</label>
+                    <input type="text" name="name" value="{{info.name}}""  class="form-control" id="bookname">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="author">著译者</label>
+                    <input type="text" name="author" value="{{info.author}}" class="form-control" id="author">
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="publisher">出版处</label>
+                    <select class="custom-select" name="publisher">
+                      {{each list value index}} 
+                        {{if value.name == info.publisher}}
+                          <option value ="{{value['name']}}" selected="selected">{{value['name']}}</option>
+                        {{else}}
+                          <option value ="{{value['name']}}">{{value['name']}}</option>
+                        {{/if}}
+                      {{/each}}
+                    </select>  
+                  </div> 
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mb-3"> 
+                   <label for="pageNumber">页数</label> 
+                   <input type="text" name="pageNumber" value="{{info.pageNumber}}"  class="form-control" id="pageNumber" /> 
+                  </div> 
+                  <div class="col-md-6 mb-3"> 
+                   <label for="edition">版次</label> 
+                   <input type="text" name="edition" value="{{info.edition}}"  class="form-control" id="edition" /> 
+                  </div>
+                </div>
+                <div class="row"> 
+                  <div class="col-md-6 mb-3">
+                   <label for="version">版期</label>
+                   <input type="text" value="{{info.version}}" name="version" class="form-control" id="version">
+                  </div>
+                  <div class="col-md-6 mb-3"> 
+                   <label for="price">单价</label> 
+                   <input type="text" name="price" value="{{info.price}}" class="form-control" id="price" /> 
+                  </div> 
+                </div> 
+                <div class="row"> 
+                  <div class="col-md-6 mb-3"> 
+                   <label for="location">书架名称</label> 
+                   <input type="text" name="location" value="{{info.location}}" class="form-control" id="location" /> 
+                  </div> 
+                  <div class="col-md-6 mb-3"> 
+                   <label for="annotation">备注</label> 
+                   <input type="text" name="annotation" value="{{info.annotation}}" class="form-control" id="annotation"> 
+                  </div> 
+                </div> 
+                <hr class="mb-4"> 
+                <div class="row"> 
+                 <div class="col-md-6 mb-3"> 
+                  <button class="btn btn-info btn-block" type="submit" onclick="createORUpdateBookInfo({{info.id}})">确定</button> 
+                 </div> 
+                 <div class="col-md-6 mb-3"> 
+                   <button class="btn btn-light btn-block" type="button" onclick="cancleButton('book.html')">取消</button> 
+                 </div> 
+                </div>  
+             </form>
+           </script>
+         </div>
+       </div>
+        </main>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="./js/jquery-3.1.1.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/moment.min.js"></script>
+    <script src="./js/template-web.js"></script>
+    <script src="./js/booksystem.js"></script>
+
+    <!-- Icons -->
+    <script src="./js/feather.min.js"></script>
+    <script>
+      $(function() {
+        getBookrInfo()
+      });
+    </script>
+  </body>
+</html>

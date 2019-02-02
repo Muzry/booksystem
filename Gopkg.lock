@@ -2,7 +2,14 @@
 
 
 [[projects]]
-  branch = "master"
+  digest = "1:2b59aca2665ff804f6606c8829eaee133ddd3aefbc841014660d961b0034f888"
+  name = "github.com/gin-contrib/cors"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "cf4846e6a636a76237a28d9286f163c132e841bc"
+  version = "v1.2"
+
+[[projects]]
   digest = "1:36fe9527deed01d2a317617e59304eb2c4ce9f8a24115bcc5c2e37b3aee5bae4"
   name = "github.com/gin-contrib/sse"
   packages = ["."]
@@ -21,6 +28,30 @@
   pruneopts = "UT"
   revision = "b869fe1415e4b9eb52f247441830d502aece2d4d"
   version = "v1.3.0"
+
+[[projects]]
+  digest = "1:43c0f7d28e1d4359041ef2d2ed2e37f599a6c623b1c59aac0d04da2fda29bbb3"
+  name = "github.com/go-xorm/builder"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "1d658d7596c25394aab557ef5b50ef35bf706384"
+  version = "v0.3.4"
+
+[[projects]]
+  digest = "1:04021679f3d7777dc38fdc8760ead2b09dc7bf7ae1077ad415d11f68495bd74e"
+  name = "github.com/go-xorm/core"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "ccc80c1adf1f6172bbc548877f50a1163041a40a"
+  version = "v0.6.2"
+
+[[projects]]
+  digest = "1:4f01359acf1d4bc0aade06dcfca6f7687516f54fbf70b467fe90057c614647f5"
+  name = "github.com/go-xorm/xorm"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "1f39c590c64924f358c0d89016ac9b2bb84e9125"
+  version = "v0.7.1"
 
 [[projects]]
   digest = "1:6ba96a683441984156b05568b9d31dbc846d3336d21ac220fcc819a367dc1f65"
@@ -45,6 +76,14 @@
   revision = "57fdcb988a5c543893cc61bce354a6e24ab70022"
 
 [[projects]]
+  digest = "1:4a49346ca45376a2bba679ca0e83bec949d780d4e927931317904bad482943ec"
+  name = "github.com/mattn/go-sqlite3"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "c7c4067b79cc51e6dfdcef5c702e74b1e0fa7c75"
+  version = "v1.10.0"
+
+[[projects]]
   digest = "1:c268acaa4a4d94a467980e5e91452eb61c460145765293dc0aed48e5e9919cc6"
   name = "github.com/ugorji/go"
   packages = ["codec"]
@@ -53,11 +92,11 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:4b487c782bc804d994e91adbd3d2a8a77a482671efd87b2fde0805adb01a39c0"
+  digest = "1:aba2486bbebaadd1f62bde3c363ddbd984efade895833d86ed069f586fd9e899"
   name = "golang.org/x/sys"
   packages = ["unix"]
   pruneopts = "UT"
-  revision = "fa5fdf94c78965f1aa8423f0cc50b8b8d728b05a"
+  revision = "aca44879d5644da7c5b8ec6a1115e9b6ea6c40d9"
 
 [[projects]]
   digest = "1:1b4724d3c8125f6044925f02b485b74bfec9905cbf579d95aafd1a6c8f8447d3"
@@ -77,6 +116,11 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  input-imports = ["github.com/gin-gonic/gin"]
+  input-imports = [
+    "github.com/gin-contrib/cors",
+    "github.com/gin-gonic/gin",
+    "github.com/go-xorm/xorm",
+    "github.com/mattn/go-sqlite3",
+  ]
   solver-name = "gps-cdcl"
   solver-version = 1

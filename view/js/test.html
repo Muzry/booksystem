@@ -1,0 +1,81 @@
+<html>
+ <head></head>
+ <body>
+  <main role="main" class="ml-sm-auto col-lg-10 px-4"> 
+   <div class="row justify-content-center"> 
+    <div class="col-md-6" id="bookInfoDiv"> 
+      <script id="bookInfoScript" type="text/html">  
+        <h2 class="mb-3" style="margin-top: 20px;margin-bottom: 20px">创建书籍信息</h2>
+        <form class="needs-validation" id="bookInfo" novalidate>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="barCode">条形码</label>
+            <input type="text" value="{{info.barCode}}" name="barCode" class="form-control" id="barCode">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="bookname">书名</label>
+            <input type="text" name="name" class="form-control" id="bookname">
+          </div>
+        </div>
+        <div class="row">
+
+          <div class="col-md-6 mb-3">
+            <label for="author">著译者</label>
+            <input type="text" name="author" class="form-control" id="author">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="publisher">出版处</label>
+            <select class="custom-select" value={{info.pub}} name="publisher" id="publisherOption"></select>
+              <script id="publisherSelect" type="text/html">
+              {{each list value index}} 
+                <option value ="{{value['name']}}">{{value['name']}}</option>  
+              {{/each}}
+              </script> 
+          </div> 
+        </div>
+        <div class="row">
+          <div class="col-md-6 mb-3"> 
+           <label for="pageNumber">页数</label> 
+           <input type="text" name="pageNumber" class="form-control" id="pageNumber" /> 
+          </div> 
+        </div> 
+        <div class="col-md-6 mb-3"> 
+         <label for="edition">版次</label> 
+         <input type="text" name="edition" class="form-control" id="edition" /> 
+        </div> 
+        <div class="row"> 
+          <div class="col-md-6 mb-3">
+           <label for="version">版期</label>
+           <input type="text" value="{{info.edition}}" name="version" class="form-control" id="version">
+          </div>
+          <div class="col-md-6 mb-3"> 
+           <label for="price">单价</label> 
+           <input type="text" name="price" class="form-control" id="price" /> 
+          </div> 
+        </div> 
+        <div class="row"> 
+          <div class="col-md-6 mb-3"> 
+           <label for="location">书架名称</label> 
+           <input type="text" name="location" class="form-control" id="location" /> 
+          </div> 
+          <div class="col-md-6 mb-3"> 
+           <label for="annotation">备注</label> 
+           <input type="text" name="annotation" class="form-control" id="annotation" /> 
+          </div> 
+       </div> 
+       <hr class="mb-4" /> 
+       <div class="row"> 
+        <div class="col-md-6 mb-3"> 
+         <button class="btn btn-info btn-block" type="submit" onclick="createORUpdateBookInfo()">确定</button> 
+        </div> 
+        <div class="col-md-6 mb-3"> 
+         <button class="btn btn-light btn-block" type="submit" onclick="">取消</button> 
+        </div> 
+       </div>  
+       </form>
+      </script>
+    </div>
+   </div>
+  </main>
+ </body>
+</html>

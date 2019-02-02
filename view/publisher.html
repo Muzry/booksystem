@@ -51,7 +51,9 @@
                 <h2 class="h2" style="margin-top: 20px;margin-bottom: 20px">出版社管理</h2>
             </div>
             <div class="col-1">
-                <button class="btn btn-primary" style="margin-top: 20px; margin-bottom: 20px;width: 80px;height: 40px;">新增</button>
+              <a href="./publisherinfo.html">
+                <button class="btn btn-info" style="margin-top: 20px; margin-bottom: 20px;width: 80px;height: 40px;">新增</button>
+              </a>
             </div>
           </div>
           <div class="table-responsive">
@@ -61,17 +63,30 @@
                   <th>#</th>
                   <th>ISBN</th>
                   <th>出版社名</th>
+                  <th>创建时间</th>
                   <th>操作</th>
                 </tr>
               </thead>
+              <tbody id="table"></tbody>
+              <script id="publisherTable" type="text/html">
+              {{each list value index }}
               <tbody>
                 <tr>
-                  <td>id</td>
-                  <td>ddd</td>
-                  <td>xxx</td>
-                  <td><button data-feather="edit"></button><button style="margin-left:5px" data-feather="x-circle"></td>
+                  <td>{{index + 1}}</td>
+                  <td>{{value['isbn']}}</td>
+                  <td>{{value['name']}}</td>
+                  <td>{{value['createAt']}}</td>
+                  <td>
+                    <a href="./publisherinfo.html?id={{value['id']}}" style="text-decoration: none;color:initial;">
+                      <button data-feather="edit"></button>
+                    </a>
+                    
+                    <button style="margin-left:5px" onclick="deletePublisherInfo({{value['id']}})" data-feather="x-circle"></button>
+                  </td>
                 </tr>
               </tbody>
+              {{/each}}
+            </script>
             </table>
           </div>
         </main>
@@ -81,14 +96,18 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="./js/vendor/popper.min.js"></script>
+    <script src="./js/jquery-3.1.1.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/moment.min.js"></script>
+    <script src="./js/template-web.js"></script>
+    <script src="./js/booksystem.js"></script>
 
     <!-- Icons -->
     <script src="./js/feather.min.js"></script>
     <script>
-      feather.replace()
+      $(function() {
+        getPublisherList(true)
+      })
     </script>
   </body>
 </html>
