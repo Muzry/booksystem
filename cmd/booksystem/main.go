@@ -11,7 +11,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/caicloud/nirvana/log"
+	"log"
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
@@ -56,10 +56,10 @@ func main() {
 			pb.ID = strconv.FormatInt(time.Now().UnixNano(), 10)
 			_, err = engine.Insert(pb)
 			if err != nil {
-				log.Info(err)
+				log.Print(err)
 			}
 		}
-		_, err = os.Create("./pblic_lock")
+		_, err = os.Create("./public_lock")
 		if err != nil {
 			log.Fatal(err)
 		}
