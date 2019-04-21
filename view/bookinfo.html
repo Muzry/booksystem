@@ -56,15 +56,21 @@
                     <input type="text" value="{{info.barCode}}" name="barCode" class="form-control" id="barCode">
                   </div>
                   <div class="col-md-6 mb-3">
-                    <label for="bookname">书名</label>
-                    <input type="text" name="name" value="{{info.name}}""  class="form-control" id="bookname">
+                    <label for="number">图书编号</label>
+                    <input type="text" value="{{info.number}}" name="number" class="form-control" id="number">
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-md-6 mb-3">
+                    <label for="bookname">书名</label>
+                    <input type="text" name="name" value="{{info.name}}""  class="form-control" id="bookname">
+                  </div>
+                  <div class="col-md-6 mb-3">
                     <label for="author">著译者</label>
                     <input type="text" name="author" value="{{info.author}}" class="form-control" id="author">
                   </div>
+                </div>
+                <div class="row">
                   <div class="col-md-6 mb-3">
                     <label for="publisher">出版处</label>
                     <select class="custom-select" name="publisher">
@@ -77,12 +83,16 @@
                       {{/each}}
                     </select>  
                   </div> 
-                </div>
-                <div class="row">
                   <div class="col-md-6 mb-3"> 
                    <label for="pageNumber">页数</label> 
                    <input type="text" name="pageNumber" value="{{info.pageNumber}}"  class="form-control" id="pageNumber" /> 
                   </div> 
+                </div>
+                <div class="row"> 
+                  <div class="col-md-6 mb-3"> 
+                   <label for="size">开本</label> 
+                   <input type="text" name="size" value="{{info.size}}"  class="form-control" id="size" /> 
+                  </div>
                   <div class="col-md-6 mb-3"> 
                    <label for="edition">版次</label> 
                    <input type="text" name="edition" value="{{info.edition}}"  class="form-control" id="edition" /> 

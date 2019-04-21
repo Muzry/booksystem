@@ -62,20 +62,18 @@
                 <tr>
                   <th>序号</th>
                   <th>条形码</th>
-                  <!-- <th>图书编号</th> -->
-                  <!-- <th>分类号</th> -->
-                  <!-- <th>图书类别</th> -->
+                  <th>图书编号</th>
                   <th>书名</th>
                   <th>著译者</th>
                   <th>出版处</th>
                   <th>页数</th>
-                  <!-- <th>开本</th> -->
+                  <th>开本</th>
                   <th>版期</th>
                   <th>版次</th>
                   <th>价格</th>
                   <th>书架名称</th>
-                  <th>入库时间</th>
                   <th>备注</th>
+                  <th>入库时间</th>
                   <th>操作</th>
                 </tr>
               </thead>
@@ -85,20 +83,18 @@
               <tbody>
                   <td>{{index + 1}}</td>
                   <td>{{value['barCode']}}</td>
-                  <!-- <td>{{value['number']}}</td> -->
-                  <!-- <td>{{value['classNumber']}}</td> -->
-                  <!-- <td>{{value['class']}}</td> -->
+                  <td>{{value['number']}}</td>
                   <td>{{value['name']}}</td>
                   <td>{{value['author']}}</td>
                   <td>{{value['publisher']}}</td>
                   <td>{{value['pageNumber']}}</td>
-                  <!-- <td>{{value['size']}}</td> -->
+                  <td>{{value['size']}}</td>
                   <td>{{value['version']}}</td>
                   <td>{{value['edition']}}</td>
                   <td>{{value['price']}}</td>
                   <td>{{value['location']}}</td>
-                  <td>{{value['createAt']}}</td>
                   <td>{{value['annotation']}}</td>
+                  <td>{{value['createAt']}}</td>
                   <td>
                     <a href="./bookinfo.html?id={{value['id']}}" style="text-decoration: none;color:initial;">
                       <button data-feather="edit"></button>

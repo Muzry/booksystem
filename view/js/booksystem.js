@@ -98,7 +98,7 @@ function getBookList(){
         crossDomain: true,
         success:function(data) {
             for (var i = data.length - 1; i >= 0; i--) {
-                data[i]['createAt'] = moment(data[i]['createAt']).format('YYYY年MM月DD日 HH:mm:ss')
+                data[i]['createAt'] = moment(data[i]['createAt']).format('YYYY年MM月DD日')
             }
             newData = {
                 list: data

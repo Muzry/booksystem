@@ -31,7 +31,7 @@ func CreatePublisher(ctx *gin.Context) {
 		return
 	}
 
-	result, err := CreateORUpdatePublisher(publisher, Create, strconv.FormatInt(time.Now().Unix(), 10))
+	result, err := CreateORUpdatePublisher(publisher, Create, strconv.FormatInt(time.Now().UnixNano(), 10))
 	if err != nil {
 		ctx.JSON(http.StatusInternalServerError, nil)
 		return
